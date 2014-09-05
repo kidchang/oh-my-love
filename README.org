@@ -1,4 +1,43 @@
+* Introduction
+
 This is a personal site for my lovele girl, it is inspired by [[https://github.com/wong2/lovegift][lovegift]].
 
 The code contains lots of quick and dirty quirks, I'm not sure whether I have
 time to make it clean and readable.
+
+* How to run
+
+This site is a simple rails app, you can just run it by:
+
+#+BEGIN_SRC bash
+git clone https://github.com/xiaohanyu/oh-my-love.git oh-my-love
+cd oh-my-love
+bundle install
+bundle exec rails server
+#+END_SRC
+
+* Internals
+
+There're two points worth mentioning.
+
+** Image metadatas
+
+The main design idea is to show images on Google maps, together with some
+captions to tell the story. Each image contains some metadata such as
+position(ala, Google maps' latitude and longitude), date, and description. A
+simple plain idea is to write these metadata in JavaScript directly, however, I
+have too many images and I want more flexible code, so I decide to adopt
+jQuery's =$.getJSON()$ to get metadata when needed. And I didn't want to edit
+JSON file directly, I prefer [[http://www.yaml.org/][YAML]], so I use a simple script to convert YAML to
+JSON offline. Pick this [[https://github.com/xiaohanyu/oh-my-love/blob/master/public/images/lovestory/beijing/meta.yml][meta.yml]] to get an overview of the whole idea.
+
+** Sleep function in JavaScript
+
+Second, JavaScript didn't even contains a function called =sleep()=, so I have
+to figure out some way to show a series of pictures with a series of captions
+in a series of specified time. Of course you can use =window.setTimeout()=,
+however, if you try you will know that you can only use =window.setTimeout()=
+with a specified timer. And *JavaScript is ASYNCHRONOUS by default*, so you
+need to create some [[http://en.wikipedia.org/wiki/Closure_(computer_programming)][Closure]]s to wrap and pass correct parameter. I'm a
+JavaScript beginner, so I've tried a lot to figure out this way. If you have
+better idea, do not hesitate to tell me. Thanks.
