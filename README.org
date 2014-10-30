@@ -27,7 +27,7 @@ captions to tell the story. Each image contains some metadata such as
 position(ala, Google maps' latitude and longitude), date, and description. A
 simple plain idea is to write these metadata in JavaScript directly, however, I
 have too many images and I want more flexible code, so I decide to adopt
-jQuery's =$.getJSON()$= to get metadata when needed. And I didn't want to edit
+jQuery's =$.getJSON()= to get metadata when needed. And I didn't want to edit
 JSON file directly, I prefer [[http://www.yaml.org/][YAML]], so I use a simple script to convert YAML to
 JSON offline. Pick this [[https://github.com/xiaohanyu/oh-my-love/blob/master/public/images/lovestory/beijing/meta.yml][meta.yml]] to get an overview of the whole idea.
 
