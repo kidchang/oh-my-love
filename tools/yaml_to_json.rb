@@ -1,6 +1,6 @@
 # This is a simple script to convert yaml to json
-# Usage: ruby yaml_to_json.rb data.json
-# And it will put a data.yml for you.
+# Usage: ruby yaml_to_json.rb data.yml
+# And it will put a data.json for you.
 
 require 'json'
 require 'yaml'
